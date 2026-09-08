@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shodan Advanced Search Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Shodan Full Advanced Search Builder</h1>
+
+  <!-- Network & IP Filters -->
+  <fieldset>
+    <legend>Network & Addressing</legend>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="filterIP">IP Address (ip:)</label>
+        <input type="text" id="filterIP" placeholder="8.8.8.8">
+      </div>
+      <div class="form-group">
+        <label for="filterNet">CIDR Range (net:)</label>
+        <input type="text" id="filterNet" placeholder="1.1.1.0/24">
+      </div>
+      <div class="form-group">
+        <label for="filterPort">Port (port:)</label>
+        <input type="text" id="filterPort" placeholder="80, 443, 22">
+      </div>
+      <div class="form-group">
+        <label for="filterASN">ASN (asn:)</label>
+        <input type="text" id="filterASN" placeholder="AS15169">
+      </div>
+      <div class="form-group">
+        <label for="filterOrg">Organization (org:)</label>
+        <input type="text" id="filterOrg" placeholder="Google">
+      </div>
+      <div class="form-group">
+        <label for="filterISP">ISP (isp:)</label>
+        <input type="text" id="filterISP" placeholder="Comcast">
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- HTTP & Web Filters -->
+  <fieldset>
+    <legend>HTTP / Web Services</legend>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="filterTitle">HTTP Title (http.title:)</label>
+        <input type="text" id="filterTitle" placeholder="Index of /">
+      </div>
+      <div class="form-group">
+        <label for="filterStatus">HTTP Status (http.status:)</label>
+        <input type="text" id="filterStatus" placeholder="200, 403">
+      </div>
+      <div class="form-group">
+        <label for="filterComponent">HTTP Component (http.component:)</label>
+        <input type="text" id="filterComponent" placeholder="jQuery, WordPress">
+      </div>
+      <div class="form-group">
+        <label for="filterHtml">HTML Content (http.html:)</label>
+        <input type="text" id="filterHtml" placeholder="dashboard">
+      </div>
+      <div class="form-group">
+        <label for="filterServer">Server Header (http.server:)</label>
+        <input type="text" id="filterServer" placeholder="Apache/2.4">
+      </div>
+      <div class="form-group">
+        <label for="filterFavicon">Favicon Hash (http.favicon.hash:)</label>
+        <input type="text" id="filterFavicon" placeholder="-1163261053">
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- SSL / TLS Certificates -->
+  <fieldset>
+    <legend>SSL / TLS Certificates</legend>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="filterSSLCN">Cert Common Name (ssl.cert.subject.cn:)</label>
+        <input type="text" id="filterSSLCN" placeholder="*.example.com">
+      </div>
+      <div class="form-group">
+        <label for="filterSSLIssuer">Cert Issuer (ssl.cert.issuer.cn:)</label>
+        <input type="text" id="filterSSLIssuer" placeholder="Let's Encrypt">
+      </div>
+      <div class="form-group">
+        <label for="filterSSLExpired">Cert Expired (ssl.cert.expired:)</label>
+        <input type="text" id="filterSSLExpired" placeholder="true / false">
+      </div>
+      <div class="form-group">
+        <label for="filterJA3">JA3 Fingerprint (ssl.ja3s:)</label>
+        <input type="text" id="filterJA3" placeholder="hash string">
+      </div>
+      <div class="form-group">
+        <label for="filterSSLVer">TLS Version (ssl.version:)</label>
+        <input type="text" id="filterSSLVer" placeholder="TLSv1.2, TLSv1.3">
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Location Filters -->
+  <fieldset>
+    <legend>Geographic Location</legend>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="filterCountry">Country Code (country:)</label>
+        <input type="text" id="filterCountry" placeholder="US, DE, IN">
+      </div>
+      <div class="form-group">
+        <label for="filterCity">City (city:)</label>
+        <input type="text" id="filterCity" placeholder="London">
+      </div>
+      <div class="form-group">
+        <label for="filterState">State / Region (state:)</label>
+        <input type="text" id="filterState" placeholder="California">
+      </div>
+      <div class="form-group">
+        <label for="filterPostal">Postal Code (postal:)</label>
+        <input type="text" id="filterPostal" placeholder="90210">
+      </div>
+      <div class="form-group">
+        <label for="filterGeo">Geo Coordinates (geo:)</label>
+        <input type="text" id="filterGeo" placeholder="37.7749,-122.4194">
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Software, Service & Vulnerability Filters -->
+  <fieldset>
+    <legend>Software, System & Vulnerability</legend>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="filterProduct">Product Name (product:)</label>
+        <input type="text" id="filterProduct" placeholder="OpenSSH, Nginx">
+      </div>
+      <div class="form-group">
+        <label for="filterVersion">Version (version:)</label>
+        <input type="text" id="filterVersion" placeholder="1.0.2">
+      </div>
+      <div class="form-group">
+        <label for="filterHost">Hostname (hostname:)</label>
+        <input type="text" id="filterHost" placeholder="sub.domain.com">
+      </div>
+      <div class="form-group">
+        <label for="filterOS">Operating System (os:)</label>
+        <input type="text" id="filterOS" placeholder="Windows, Linux">
+      </div>
+      <div class="form-group">
+        <label for="filterVuln">CVE ID (vuln:)</label>
+        <input type="text" id="filterVuln" placeholder="CVE-2021-44228">
+      </div>
+      <div class="form-group">
+        <label for="filterDevice">Device Type (device:)</label>
+        <input type="text" id="filterDevice" placeholder="webcam, router, industrial">
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Raw Keywords & Exclusions -->
+  <fieldset>
+    <legend>Raw Keywords & Exclusions</legend>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="filterRaw">Raw Keyword / Banner Text:</label>
+        <input type="text" id="filterRaw" placeholder='e.g. "default password" or "Server: Apache"'>
+      </div>
+      <div class="form-group">
+        <label for="filterExclude">Exclude Terms (-term / -filter:val):</label>
+        <input type="text" id="filterExclude" placeholder="e.g. -port:80 -country:US">
+      </div>
+      <div class="form-group">
+        <label for="filterCloud">Cloud Provider (cloud.provider:):</label>
+        <input type="text" id="filterCloud" placeholder="aws, azure, gcp">
+      </div>
+      <div class="form-group">
+        <label for="filterTag">Shodan Tag (tag:):</label>
+        <input type="text" id="filterTag" placeholder="ics, vpn, database">
+      </div>
+    </div>
+  </fieldset>
+
+  <label for="queryPreview"><strong>Generated Search Query:</strong></label>
+  <div class="query-output" id="queryPreview">Select or type filters above...</div>
+
+  <div class="btn-group">
+    <button class="btn" onclick="executeShodanSearch()">Search on Shodan</button>
+    <button class="btn btn-secondary" onclick="copyQuery()">Copy Query String</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+      </html>
+          
