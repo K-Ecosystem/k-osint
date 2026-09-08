@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/karim-abdul-rehan/karim-abdul-rehan/refs/heads/main/Karim_logo.png">
+
+  <title>Google Dork Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Google Dork Generator</h1>
+  <p class="subtitle">Build advanced search queries using Google search operators.</p>
+
+  <form id="dorkForm">
+    
+    <!-- Basic Search & Scope -->
+    <fieldset>
+      <legend>Basic Scope & Keywords</legend>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="keywords">Exact Keywords / Phrases:</label>
+          <input type="text" id="keywords" placeholder='e.g. "confidential" password'>
+        </div>
+        <div class="form-group">
+          <label for="site">Target Domain / Site (site:):</label>
+          <input type="text" id="site" placeholder="e.g. example.com or *.example.com">
+        </div>
+        <div class="form-group">
+          <label for="exclude_site">Exclude Domain (-site:):</label>
+          <input type="text" id="exclude_site" placeholder="e.g. github.com">
+        </div>
+        <div class="form-group">
+          <label for="filetype">File Type / Extension (filetype:):</label>
+          <input type="text" id="filetype" placeholder="e.g. pdf, xlsx, env, log, txt">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Content Location Operators -->
+    <fieldset>
+      <legend>Content Locations</legend>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="intitle">In Title (intitle:):</label>
+          <input type="text" id="intitle" placeholder="e.g. index of">
+        </div>
+        <div class="form-group">
+          <label for="allintitle">All Words in Title (allintitle:):</label>
+          <input type="text" id="allintitle" placeholder="e.g. restricted area login">
+        </div>
+        <div class="form-group">
+          <label for="inurl">In URL (inurl:):</label>
+          <input type="text" id="inurl" placeholder="e.g. admin, wp-content">
+        </div>
+        <div class="form-group">
+          <label for="allinurl">All Words in URL (allinurl:):</label>
+          <input type="text" id="allinurl" placeholder="e.g. phpmyadmin index">
+        </div>
+        <div class="form-group">
+          <label for="intext">In Page Body (intext:):</label>
+          <input type="text" id="intext" placeholder="e.g. root:x:0:0">
+        </div>
+        <div class="form-group">
+          <label for="allintext">All Words in Body (allintext:):</label>
+          <input type="text" id="allintext" placeholder="e.g. username password credentials">
+        </div>
+        <div class="form-group">
+          <label for="inanchor">In Link Text (inanchor:):</label>
+          <input type="text" id="inanchor" placeholder="e.g. click here">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Filters & Time Modifiers -->
+    <fieldset>
+      <legend>Date Ranges & Exclusions</legend>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="after">Published After (after: YYYY-MM-DD):</label>
+          <input type="date" id="after">
+        </div>
+        <div class="form-group">
+          <label for="before">Published Before (before: YYYY-MM-DD):</label>
+          <input type="date" id="before">
+        </div>
+        <div class="form-group">
+          <label for="exclude_words">Exclude Words (-word):</label>
+          <input type="text" id="exclude_words" placeholder="e.g. -wordpress -forum">
+        </div>
+        <div class="form-group">
+          <label for="numrange">Number Range (e.g., 100..500):</label>
+          <input type="text" id="numrange" placeholder="e.g. 2020..2026">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Specialized Operators -->
+    <fieldset>
+      <legend>Specialized Operators</legend>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="related">Related Domains (related:):</label>
+          <input type="text" id="related" placeholder="e.g. target.com">
+        </div>
+        <div class="form-group">
+          <label for="cache">View Cached Version (cache:):</label>
+          <input type="text" id="cache" placeholder="e.g. target.com/page.html">
+        </div>
+        <div class="form-group">
+          <label for="around">Proximity Search (AROUND(X)):</label>
+          <input type="text" id="around_word1" placeholder="Word A">
+          <input type="number" id="around_dist" placeholder="Max distance (e.g. 3)" style="margin-top:5px;">
+          <input type="text" id="around_word2" placeholder="Word B" style="margin-top:5px;">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Advanced Logic & Extra Parameters -->
+    <fieldset>
+      <legend>Advanced Logic & Extra Parameters</legend>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="or_keywords">OR Alternatives (Word A OR Word B):</label>
+          <input type="text" id="or_keywords" placeholder="e.g. admin OR login OR portal">
+        </div>
+        <div class="form-group">
+          <label for="tld">Target TLD / Extension (site:.tld):</label>
+          <input type="text" id="tld" placeholder="e.g. .gov, .edu, .edu.in">
+        </div>
+        <div class="form-group">
+          <label for="ext">File Extension Synonym (ext:):</label>
+          <input type="text" id="ext" placeholder="e.g. php, asp, json">
+        </div>
+        <div class="form-group">
+          <label for="location">Location (location:):</label>
+          <input type="text" id="location" placeholder="e.g. london, India">
+        </div>
+        <div class="form-group">
+          <label for="define">Definition (define:):</label>
+          <input type="text" id="define" placeholder="e.g. phishing">
+        </div>
+        <div class="form-group">
+          <label for="wildcard">Wildcard Expression (*):</label>
+          <input type="text" id="wildcard" placeholder='e.g. "index of /admin/*"'>
+        </div>
+        <div class="form-group">
+          <label for="source">News Source (source:):</label>
+          <input type="text" id="source" placeholder="e.g. news_outlet_name">
+        </div>
+        <div class="form-group">
+          <label for="movie">Movie Info (movie:):</label>
+          <input type="text" id="movie" placeholder="e.g. inception">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Output Preview & Submit -->
+    <div class="output-section">
+      <label for="generatedDork">Generated Query String:</label>
+      <textarea id="generatedDork" readonly placeholder="Your generated query will appear here..."></textarea>
+      
+      <div class="button-group">
+        <button type="button" class="btn btn-secondary" onclick="copyDork()">Copy Query</button>
+        <button type="button" class="btn btn-primary" onclick="searchGoogle()">Execute Search</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
